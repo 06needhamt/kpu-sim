@@ -1,0 +1,1 @@
+{"$type":"KyleHughes.CIS2118.KPUSim.SaveContainer, Simulator","UsedPeripherals":{"$type":"DrWPF.Windows.Data.ObservableDictionary`2[[System.UInt16, mscorlib],[KyleHughes.CIS2118.KPUSim.Peripherals.PeripheralBase, Simulator]], Simulator"},"Code":"'increments register a by 1 \r\n and pushes it to the stack.\r\n loops forever!'\r\n$label\r\npsh a\r\nadd a 1\r\nset pc >label"}

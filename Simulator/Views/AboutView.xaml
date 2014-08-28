@@ -1,0 +1,45 @@
+﻿<Window x:Name="window" x:Class="KyleHughes.CIS2118.KPUSim.Views.AboutView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:main="clr-namespace:KyleHughes.CIS2118.KPUSim"
+        xmlns:vms="clr-namespace:KyleHughes.CIS2118.KPUSim.ViewModels"
+        ResizeMode="NoResize"
+        SizeToContent="Height"
+        DataContext="{x:Static vms:MainViewModel.Instance}"
+        Title="About KPU Simulator" WindowStyle="ToolWindow" Width="288.5">
+    <Window.InputBindings>
+        <KeyBinding Key="Escape" Command="{Binding Source={x:Static main:App.Current}, Path=UniversalCloseWindowCommand}"
+                    CommandParameter="{Binding ElementName=window, Mode=OneWay}"/>
+    </Window.InputBindings>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="127*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal">
+            <Image Source="/Simulator;component/Icon.Targetsize-48.png" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5" Width="48" Height="48" Stretch="UniformToFill"/>
+            <TextBlock Text="KPU Simulator" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="24" Foreground="#FF00A8EC" FontFamily="Segoe UI Semibold"/>
+        </StackPanel>
+
+        <Grid Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" Grid.Row="1">
+            <Grid Margin="5">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <StackPanel Orientation="Horizontal" Grid.Row="0">
+                    <TextBlock Text="KPU Simulator Version " VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,0,0,2.5"/>
+                    <TextBlock Text="{Binding ExecutableVersion}" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+                </StackPanel>
+                <StackPanel Grid.Row="1"  Orientation="Horizontal">
+                    <TextBlock Text="© 2014 Kyle Hughes" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,0,0,2.5"/>
+                </StackPanel>
+                <StackPanel Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Left" Grid.Row="2" Height="16" Width="140">
+                    <TextBlock Margin="0,0,0,2.5"><Hyperlink Click="Hyperlink_Click">kyle.hughes@outlook.com</Hyperlink></TextBlock>
+                </StackPanel>
+                <Button Content="OK" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="64" Click="Button_Click" Grid.RowSpan="3" Height="20"/>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>

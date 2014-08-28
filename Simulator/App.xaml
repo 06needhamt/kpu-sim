@@ -1,0 +1,19 @@
+﻿<Application x:Class="KyleHughes.CIS2118.KPUSim.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:main="clr-namespace:KyleHughes.CIS2118.KPUSim"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:converters="clr-namespace:KyleHughes.CIS2118.KPUSim.Converters"
+             xmlns:props="clr-namespace:KyleHughes.CIS2118.KPUSim.Properties"
+             StartupUri="Views/MainWindow.xaml">
+    <Application.Resources>
+        <converters:IntToHexStringConverter x:Key="IntToHexStringConverter" />
+        <converters:QuietIntToHexStringConverter x:Key="QuietIntToHexStringConverter" />
+        <converters:BooleanVisibilityConverter x:Key="BooleanVisibilityConverter" />
+        <converters:BooleanInversionConverter x:Key="BooleanInversionConverter" />
+        <converters:NullBooleanConverter x:Key="NullBooleanConverter" />
+        <converters:IntegerModifierConverter x:Key="IntegerModifierConverter" />
+        <converters:PeripheralTypeToPeripheralNameConverter x:Key="PeripheralTypeToPeripheralNameConverter"/>
+        <converters:PeripheralTypeToPeripheralDescriptionConverter x:Key="PeripheralTypeToPeripheralDescriptionConverter"/>
+        <props:Settings x:Key="AppSettings"/>
+    </Application.Resources>
+</Application>

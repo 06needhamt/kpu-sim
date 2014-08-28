@@ -1,0 +1,246 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A3771526-D189-4810-A65C-304F60347DDA}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>KyleHughes.CIS2118.KPUSim</RootNamespace>
+    <AssemblyName>Simulator</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <ExpressionBlendVersion>12.0.41212.0</ExpressionBlendVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Expression.Interactions" />
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Interactivity" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WindowsFormsIntegration" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="ActionCommand.cs" />
+    <Compile Include="Assembly\Assembler.cs" />
+    <Compile Include="Assembly\DataValue.cs" />
+    <Compile Include="Assembly\Instruction.cs" />
+    <Compile Include="Assembly\IOperand.cs" />
+    <Compile Include="Assembly\LabelOperand.cs" />
+    <Compile Include="Assembly\MemoryOperand.cs" />
+    <Compile Include="Assembly\LiteralOperand.cs" />
+    <Compile Include="Assembly\OpCode.cs" />
+    <Compile Include="Converters\PeripheralTypeToPeripheralNameConverter.cs" />
+    <Compile Include="Converters\PeripheralTypeToPeripheralDescriptionConverter.cs" />
+    <Compile Include="Peripherals\PeripheralAttribute.cs" />
+    <Compile Include="Peripherals\PeripheralBase.cs" />
+    <Compile Include="Assembly\Register.cs" />
+    <Compile Include="Assembly\RegisterOperand.cs" />
+    <Compile Include="Assembly\WordKind.cs" />
+    <Compile Include="Converters\NullBooleanConverter.cs" />
+    <Compile Include="Converters\IntegerModifierConverter.cs" />
+    <Compile Include="Converters\BooleanInversionConverter.cs" />
+    <Compile Include="Exceptions\ChainedMemoryOperandException.cs" />
+    <Compile Include="Exceptions\DuplicateLabelDeclarationException.cs" />
+    <Compile Include="Exceptions\EmptyProgramException.cs" />
+    <Compile Include="Exceptions\UnexpectedLabelDeclarationException.cs" />
+    <Compile Include="Exceptions\UnsatisfiedLabelException.cs" />
+    <Compile Include="Exceptions\ZeroDivisionException.cs" />
+    <Compile Include="Exceptions\ExecutedNonExecutableException.cs" />
+    <Compile Include="Exceptions\OutOfRangeLiteralException.cs" />
+    <Compile Include="Exceptions\MissingOperandException.cs" />
+    <Compile Include="Exceptions\FirstOperandLiteralException.cs" />
+    <Compile Include="Exceptions\UnexpectedReferenceException.cs" />
+    <Compile Include="Exceptions\ProgramNotTerminatedException.cs" />
+    <Compile Include="Exceptions\UnknownWordException.cs" />
+    <Compile Include="Extensions.cs" />
+    <Compile Include="ObservableDictionary.cs" />
+    <Compile Include="ObservableSortedDictionary.cs" />
+    <Compile Include="ObservableStack.cs" />
+    <Compile Include="Peripherals\ClockPeripheral.cs" />
+    <Compile Include="Peripherals\TerminalPeripheral.cs" />
+    <Compile Include="SaveContainer.cs" />
+    <Compile Include="Settings.cs" />
+    <Compile Include="ViewModels\PeripheralsViewModel.cs" />
+    <Compile Include="ViewModels\ExamplesViewModel.cs" />
+    <Compile Include="Views\AboutView.xaml.cs">
+      <DependentUpon>AboutView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ConfigureTerminalView.xaml.cs">
+      <DependentUpon>ConfigureTerminalView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DrawingControl.cs" />
+    <Compile Include="Exceptions\ProgramException.cs" />
+    <Compile Include="Exceptions\UnexpectedSymbolException.cs" />
+    <Compile Include="Converters\BooleanVisibilityConverter.cs" />
+    <Compile Include="Converters\QuietIntToHexStringConverter.cs" />
+    <Compile Include="Converters\IntToHexStringConverter.cs" />
+    <Compile Include="Views\InstructionsView.xaml.cs">
+      <DependentUpon>InstructionsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ExamplesView.xaml.cs">
+      <DependentUpon>ExamplesView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\KPUSyntaxBox.xaml.cs">
+      <DependentUpon>KPUSyntaxBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\MainViewModel.cs" />
+    <Compile Include="ViewModels\NotifiableBase.cs" />
+    <Compile Include="ViewModels\SystemLogic.cs" />
+    <Compile Include="Views\OpenBinaryWarningDialog.xaml.cs">
+      <DependentUpon>OpenBinaryWarningDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PeripheralView.xaml.cs">
+      <DependentUpon>PeripheralView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TerminalView.xaml.cs">
+      <DependentUpon>TerminalView.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Views\AboutView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ConfigureTerminalView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\InstructionsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ExamplesView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Views\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Views\KPUSyntaxBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\OpenBinaryWarningDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PeripheralView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\TerminalView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <None Include="bin\Release\Examples\counter.kpu" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+    <None Include="Resources\Arithematic.kpu" />
+    <None Include="Resources\Bitwise.kpu" />
+    <None Include="Resources\Counter.kpu" />
+    <None Include="Resources\Labels.kpu" />
+    <None Include="Resources\Logic.kpu" />
+    <None Include="Resources\Memory.kpu" />
+    <None Include="Resources\Stack.kpu" />
+    <None Include="Resources\Subroutines.kpu" />
+    <None Include="Resources\Terminal.kpu" />
+    <None Include="Resources\Time.kpu" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Font.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icon.Targetsize-16.png" />
+    <Resource Include="Icon.Targetsize-256.png" />
+    <Resource Include="Icon.Targetsize-32.png" />
+    <Resource Include="Icon.Targetsize-48.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
