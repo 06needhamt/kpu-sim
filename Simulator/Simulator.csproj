@@ -75,6 +75,7 @@
     <Compile Include="Assembly\OpCode.cs" />
     <Compile Include="Converters\PeripheralTypeToPeripheralNameConverter.cs" />
     <Compile Include="Converters\PeripheralTypeToPeripheralDescriptionConverter.cs" />
+    <Compile Include="Peripherals\StoragePeripheral.cs" />
     <Compile Include="Peripherals\PeripheralAttribute.cs" />
     <Compile Include="Peripherals\PeripheralBase.cs" />
     <Compile Include="Assembly\Register.cs" />
@@ -136,6 +137,9 @@
     <Compile Include="Views\PeripheralView.xaml.cs">
       <DependentUpon>PeripheralView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\StorageView.xaml.cs">
+      <DependentUpon>StorageView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\TerminalView.xaml.cs">
       <DependentUpon>TerminalView.xaml</DependentUpon>
     </Compile>
@@ -178,6 +182,10 @@
     <Page Include="Views\PeripheralView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\StorageView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\TerminalView.xaml">
       <SubType>Designer</SubType>
